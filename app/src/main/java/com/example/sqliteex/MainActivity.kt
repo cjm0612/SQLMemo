@@ -21,9 +21,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        //리사이클러뷰의 아이템을 역순으로 정렬...
+        val layoutManager = LinearLayoutManager(this@MainActivity)
+        layoutManager.reverseLayout = true
+        layoutManager.stackFromEnd = true
+
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = MyAdapter()
-        
+
         fab.setOnClickListener{
 
             val dialog = WriteDialog()
